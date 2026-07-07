@@ -1,0 +1,6 @@
+project:
+  title: "wiiw agentic pipeline"
+  # Render every document from the project root so that source("R/config.R"),
+  # targets::tar_read(), and results/ paths resolve the same way whether the
+  # agent runs `quarto render paper/working_paper.qmd` or `targets::tar_make()`.
+  execute-dir: project

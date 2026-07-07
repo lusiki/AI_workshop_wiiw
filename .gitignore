@@ -1,0 +1,42 @@
+# --- targets store -----------------------------------------------------------
+/_targets/
+
+# --- renv library (keep renv.lock, renv/activate.R, renv/settings.json) ------
+renv/library/
+renv/local/
+renv/cellar/
+renv/staging/
+renv/python/
+renv/sandbox/
+
+# --- data --------------------------------------------------------------------
+# Raw extracts are reproducible live pulls; derived data is reproducible from
+# raw; restricted data must NEVER be committed. Keep the folders, drop contents.
+data/raw/*
+!data/raw/.gitkeep
+data/derived/*
+!data/derived/.gitkeep
+data/restricted/*
+!data/restricted/.gitkeep
+!data/restricted/README.md
+
+# --- generated results -------------------------------------------------------
+results/*
+!results/.gitkeep
+
+# --- Quarto / manuscript build artefacts -------------------------------------
+/.quarto/
+paper/working_paper.pdf
+paper/working_paper.html
+paper/working_paper_files/
+paper/*.tex
+
+# --- R session ---------------------------------------------------------------
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# --- OS ----------------------------------------------------------------------
+.DS_Store
+Thumbs.db

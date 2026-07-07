@@ -1,0 +1,15 @@
+# Normalize line endings to LF for all text so R scripts, shell snippets and
+# Quarto behave identically on Windows, macOS and Linux clones.
+* text=auto eol=lf
+
+*.R    text eol=lf
+*.qmd  text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.bib  text eol=lf
+*.lock text eol=lf
+
+*.png binary
+*.pdf binary
+*.rds binary
