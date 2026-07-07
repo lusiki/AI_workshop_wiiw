@@ -56,14 +56,33 @@ jobs:
         with:
           use-public-rspm: true
       - uses: quarto-dev/quarto-actions/setup@v2
-      - name: Install R packages (binaries from Posit PPM)
-        run: >
-          Rscript -e 'install.packages(c("targets","tarchetypes","quarto","dplyr",
-          "tidyr","tibble","eurostat","fixest","did","modelsummary","gt","ggplot2",
-          "jsonlite","testthat"))'
+      - name: Install R packages (+ system deps, cached)
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::targets
+            any::tarchetypes
+            any::quarto
+            any::dplyr
+            any::tidyr
+            any::tibble
+            any::eurostat
+            any::fixest
+            any::did
+            any::modelsummary
+            any::gt
+            any::ggplot2
+            any::jsonlite
+            any::testthat
+      - name: Cache the Eurostat extract between runs
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: eurostat-${{ hashFiles('R/config.R') }}
+          restore-keys: eurostat-
       - name: Install TinyTeX for the PDF
         run: quarto install tinytex --no-prompt
-      - name: Build pipeline (live Eurostat) + render paper
+      - name: Build pipeline (live Eurostat, cached) + render paper
         run: Rscript analysis/run.R
       - uses: actions/upload-artifact@v4
         with:

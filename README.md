@@ -1,5 +1,7 @@
 # wiiw_agentic_pipeline
 
+[![publish](https://github.com/lusiki/AI_workshop_wiiw/actions/workflows/publish.yml/badge.svg)](https://github.com/lusiki/AI_workshop_wiiw/actions/workflows/publish.yml)
+
 A **minimal** agentic pipeline for wiiw working-paper production: the smallest
 set of components that makes delegating research work to an AI coding agent
 (Claude Code) both safe and productive. It ships a real, reproducible analysis —
