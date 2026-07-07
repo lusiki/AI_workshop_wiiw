@@ -1,0 +1,98 @@
+/*-- scss:defaults --*/
+// wiiw seminar theme — a restrained, policy-institute look.
+// Primary is the same wiiw blue used in the paper's figures, so slides,
+// handout and exhibits read as one visual system.
+
+$wiiw-blue:       #00437b;
+$wiiw-blue-light: #3a6ea5;
+$wiiw-amber:      #e0a300;   // the "catch" / highlight accent
+$ink:             #1a1a1a;
+$muted:           #5b6672;
+$paper:           #ffffff;
+$rule:            #d9dee3;
+$code-bg:         #f4f6f8;
+
+$body-bg:    $paper;
+$body-color: $ink;
+$link-color: $wiiw-blue;
+$selection-bg: rgba($wiiw-amber, 0.35);
+
+$font-family-sans-serif: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "SFMono-Regular", "JetBrains Mono", Consolas, "Liberation Mono", Menlo, monospace;
+$presentation-font-size-root: 30px;
+
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-color: $wiiw-blue;
+$presentation-heading-font-weight: 700;
+$presentation-h1-font-size: 1.7em;
+$presentation-h2-font-size: 1.25em;
+$presentation-title-slide-text-align: left;
+
+$code-block-font-size: 0.62em;
+$link-color-hover: $wiiw-amber;
+
+/*-- scss:rules --*/
+.reveal .slides section { text-align: left; }
+
+// Assertion titles sit on a short blue rule.
+.reveal h2 {
+  border-bottom: 3px solid $wiiw-amber;
+  padding-bottom: 0.15em;
+  display: inline-block;
+  margin-bottom: 0.6em;
+  line-height: 1.15;
+}
+
+.reveal .slide-number { color: $muted; }
+
+.reveal p, .reveal li { line-height: 1.35; }
+.reveal ul { margin-left: 0.4em; }
+.reveal li { margin-bottom: 0.25em; }
+
+// Lede paragraph under a title.
+.reveal .lede { color: $muted; font-size: 0.9em; }
+
+// Inline code + code blocks.
+.reveal code { color: $wiiw-blue; background: $code-bg; padding: 0.05em 0.3em; border-radius: 4px; }
+.reveal pre { box-shadow: none; border: 1px solid $rule; border-radius: 8px; }
+.reveal pre code { background: $code-bg; color: $ink; }
+
+// Tables.
+.reveal table { font-size: 0.8em; }
+.reveal table th { background: $wiiw-blue; color: #fff; border: none; }
+.reveal table td { border-color: $rule; }
+.reveal table tr:nth-child(even) td { background: rgba($wiiw-blue, 0.04); }
+
+// The "money moment" callout used on the demo/verify slides.
+.reveal .catch {
+  background: rgba($wiiw-amber, 0.14);
+  border-left: 6px solid $wiiw-amber;
+  padding: 0.5em 0.8em;
+  border-radius: 0 8px 8px 0;
+}
+
+// Small key/tag chips (e.g. the five components).
+.reveal .chip {
+  display: inline-block; background: $wiiw-blue; color: #fff;
+  font-weight: 700; font-size: 0.7em; padding: 0.1em 0.6em;
+  border-radius: 999px; margin-right: 0.3em;
+}
+
+// Two-column helper.
+.reveal .cols { display: flex; gap: 1.2em; align-items: flex-start; }
+.reveal .cols > * { flex: 1; }
+
+// Source/footnote line.
+.reveal .src { color: $muted; font-size: 0.62em; margin-top: 0.6em; }
+
+// Title slide.
+.reveal .title-slide h1 { color: $wiiw-blue; }
+.reveal .subtitle { color: $muted; }
+
+// Dark-theme legibility: if the deck is viewed on a dark background, keep
+// headings readable by lightening the blue.
+@media (prefers-color-scheme: dark) {
+  .reveal.has-dark-background h1,
+  .reveal.has-dark-background h2,
+  .reveal.has-dark-background h3 { color: $wiiw-blue-light; }
+}

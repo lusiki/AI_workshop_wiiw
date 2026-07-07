@@ -95,9 +95,29 @@ data/raw/              source extracts (reproducible pulls)
 data/derived/          reproducible from raw
 data/restricted/       read-denied; restricted microdata never enters a prompt
 tests/testthat/        schema, tolerance, and numeric-provenance checks
-demo/                  the seminar planted-bug scripts
+demo/                  planted-bug scripts + the minute-by-minute RUNBOOK.md
+slides/                reveal.js deck (slides.qmd) + wiiw theme (theme.scss)
+handout/               one-page print-ready handout (handout.html)
+assets/                shared design assets (loop-diagram.svg)
 setup.R  renv.lock     pinned R environment
 ```
+
+## Seminar materials
+
+The repo doubles as the seminar's presentation kit — same wiiw visual system
+(blue `#00437b`, amber accents) across the slides, the handout, and the paper's
+figures.
+
+| Material | File | Render / view |
+|----------|------|---------------|
+| Slides (~20, reveal.js) | [slides/slides.qmd](slides/slides.qmd) | `quarto render slides/slides.qmd` → self-contained `slides.html` |
+| One-page handout | [handout/handout.html](handout/handout.html) | open in a browser; print to PDF (landscape A4, one page) |
+| Demo run-book | [demo/RUNBOOK.md](demo/RUNBOOK.md) | minute-by-minute script, planted-bug rehearsal, 60-second fallback |
+| Loop diagram | [assets/loop-diagram.svg](assets/loop-diagram.svg) | shared by the slides and the handout |
+
+Pricing figures in the slides and handout were checked against current Claude
+pricing; **re-verify at claude.com/pricing the week of the talk** (the deck and
+handout both carry that reminder).
 
 ## Data availability
 

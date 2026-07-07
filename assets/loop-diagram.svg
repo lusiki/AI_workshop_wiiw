@@ -1,0 +1,63 @@
+<svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="The operating loop: describe, plan, approve, execute under permissions, verify, commit, then next task.">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6672"/>
+    </marker>
+    <style>
+      .pill   { rx: 12; }
+      .human  { fill: #e0a300; }
+      .agent  { fill: #00437b; }
+      .lbl    { font-family: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; font-weight: 700; font-size: 16px; }
+      .lbl-h  { fill: #1a1a1a; }
+      .lbl-a  { fill: #ffffff; }
+      .cap    { font-family: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; font-size: 11px; fill: #5b6672; }
+      .conn   { stroke: #5b6672; stroke-width: 2; fill: none; }
+      .ret    { font-family: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; font-weight: 700; font-size: 13px; fill: #5b6672; }
+    </style>
+  </defs>
+
+  <!-- return arc: commit -> describe ("next task") -->
+  <path class="conn" d="M 911 120 C 911 40, 911 40, 700 40 L 300 40 C 89 40, 89 40, 89 120" marker-end="url(#arrow)"/>
+  <text class="ret" x="500" y="34" text-anchor="middle">next task</text>
+
+  <!-- nodes -->
+  <!-- 0 Describe (human) -->
+  <rect class="pill human" x="24"  y="120" width="130" height="72"/>
+  <text class="lbl lbl-h" x="89"  y="150" text-anchor="middle">Describe</text>
+  <text class="cap"       x="89"  y="210" text-anchor="middle">you: plain request</text>
+  <!-- 1 Plan (agent) -->
+  <rect class="pill agent" x="188.4" y="120" width="130" height="72"/>
+  <text class="lbl lbl-a" x="253.4" y="150" text-anchor="middle">Plan</text>
+  <text class="cap"       x="253.4" y="210" text-anchor="middle">agent: read-only</text>
+  <!-- 2 Approve (human) -->
+  <rect class="pill human" x="352.8" y="120" width="130" height="72"/>
+  <text class="lbl lbl-h" x="417.8" y="150" text-anchor="middle">Approve</text>
+  <text class="cap"       x="417.8" y="210" text-anchor="middle">you: the plan gate</text>
+  <!-- 3 Execute (agent) -->
+  <rect class="pill agent" x="517.2" y="120" width="130" height="72"/>
+  <text class="lbl lbl-a" x="582.2" y="146" text-anchor="middle">Execute</text>
+  <text class="lbl-a"     x="582.2" y="164" text-anchor="middle" font-size="10" font-family="-apple-system,Segoe UI,Roboto,sans-serif">under permissions</text>
+  <text class="cap"       x="582.2" y="210" text-anchor="middle">agent: allowlist fence</text>
+  <!-- 4 Verify (agent) -->
+  <rect class="pill agent" x="681.6" y="120" width="130" height="72"/>
+  <text class="lbl lbl-a" x="746.6" y="150" text-anchor="middle">Verify</text>
+  <text class="cap"       x="746.6" y="210" text-anchor="middle">agent + critic</text>
+  <!-- 5 Commit (human) -->
+  <rect class="pill human" x="846"   y="120" width="130" height="72"/>
+  <text class="lbl lbl-h" x="911"  y="150" text-anchor="middle">Commit</text>
+  <text class="cap"       x="911"  y="210" text-anchor="middle">you: review diff</text>
+
+  <!-- forward connectors -->
+  <line class="conn" x1="154"   y1="156" x2="188.4" y2="156" marker-end="url(#arrow)"/>
+  <line class="conn" x1="318.4" y1="156" x2="352.8" y2="156" marker-end="url(#arrow)"/>
+  <line class="conn" x1="482.8" y1="156" x2="517.2" y2="156" marker-end="url(#arrow)"/>
+  <line class="conn" x1="647.2" y1="156" x2="681.6" y2="156" marker-end="url(#arrow)"/>
+  <line class="conn" x1="811.6" y1="156" x2="846"   y2="156" marker-end="url(#arrow)"/>
+
+  <!-- legend -->
+  <rect class="human" x="24"  y="256" width="16" height="16" rx="4"/>
+  <text class="cap" x="48"  y="269">Human decides</text>
+  <rect class="agent" x="176" y="256" width="16" height="16" rx="4"/>
+  <text class="cap" x="200" y="269">Agent works</text>
+</svg>
