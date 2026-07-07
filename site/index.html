@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI in Economics Research — wiiw seminar</title>
+<style>
+  :root{--blue:#00437b;--blue-light:#3a6ea5;--amber:#e0a300;--ink:#1a1a1a;--muted:#5b6672;--rule:#d9dee3}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:#eef1f4;color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;padding:24px}
+  .card{background:#fff;max-width:720px;width:100%;border-radius:14px;
+    box-shadow:0 6px 30px rgba(0,0,0,.12);overflow:hidden}
+  .top{background:var(--blue);color:#fff;padding:26px 30px}
+  .top h1{margin:0;font-size:24px}
+  .top p{margin:6px 0 0;color:#cfe0ef;font-size:14px}
+  .body{padding:26px 30px 30px}
+  .lead{color:var(--muted);font-size:14px;margin:0 0 20px;line-height:1.5}
+  .links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  a.btn{display:block;text-decoration:none;border:1px solid var(--rule);border-radius:10px;
+    padding:14px 16px;color:var(--ink);transition:border-color .15s,transform .05s}
+  a.btn:hover{border-color:var(--amber);transform:translateY(-1px)}
+  a.btn b{display:block;color:var(--blue);font-size:15px}
+  a.btn span{color:var(--muted);font-size:12px}
+  a.primary{border-color:var(--blue);border-width:2px}
+  .foot{margin-top:20px;font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px}
+  .foot a{color:var(--blue)}
+  @media (max-width:560px){.links{grid-template-columns:1fr}}
+  @media (prefers-color-scheme:dark){
+    body{background:#0e1621}.card{background:#141d29}
+    a.btn{color:#e7ebf0;border-color:#2a3646}a.btn b,.foot a{color:var(--blue-light)}
+    .lead,a.btn span,.foot{color:#9fb0c2}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <h1>AI in Economics Research</h1>
+      <p>From frontier ideas to a working agentic pipeline · a seminar for wiiw</p>
+    </div>
+    <div class="body">
+      <p class="lead">Everything from the hour, in one place. Clone the repository to run the
+      pipeline yourself; open the slides and handout below to follow along.</p>
+      <div class="links">
+        <a class="btn primary" href="slides.html"><b>▶ Slides</b><span>reveal.js deck — arrow keys to navigate</span></a>
+        <a class="btn" href="handout.html"><b>▤ One-page handout</b><span>the five components, cost table, reading list</span></a>
+        <a class="btn" href="slides.pdf"><b>⬇ Slides (PDF)</b><span>printable fallback of the deck</span></a>
+        <a class="btn" href="working_paper.pdf"><b>⬇ Working paper</b><span>rendered from the live pipeline (best-effort)</span></a>
+      </div>
+      <p class="foot">Repository &amp; source:
+        <a href="https://github.com/lusiki/AI_workshop_wiiw">github.com/lusiki/AI_workshop_wiiw</a>
+        · pricing figures — re-verify at claude.com/pricing the week of the talk.</p>
+    </div>
+  </div>
+</body>
+</html>

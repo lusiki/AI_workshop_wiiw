@@ -1,0 +1,113 @@
+name: publish
+
+# Renders the seminar slides (and, best-effort, the working paper) and publishes
+# them to GitHub Pages on every push to main.
+#
+# ONE-TIME SETUP (required before the first deploy succeeds):
+#   Repo Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+# The site then appears at:  https://lusiki.github.io/AI_workshop_wiiw/
+#
+# The `slides` job is fast and reliable (Quarto only, no R, no data). The `paper`
+# job runs the full R pipeline against LIVE Eurostat data and is marked
+# continue-on-error, so a slow/unavailable data source or a package hiccup never
+# blocks the slides + handout from publishing.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  slides:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render slides to HTML
+        run: quarto render slides/slides.qmd
+      - name: Export slides to PDF (best-effort fallback)
+        continue-on-error: true
+        run: |
+          npm install -g decktape
+          decktape reveal --chrome-arg=--no-sandbox slides/slides.html slides/slides.pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: slides
+          path: |
+            slides/slides.html
+            slides/slides.pdf
+          if-no-files-found: warn
+
+  paper:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Install R packages (binaries from Posit PPM)
+        run: >
+          Rscript -e 'install.packages(c("targets","tarchetypes","quarto","dplyr",
+          "tidyr","tibble","eurostat","fixest","did","modelsummary","gt","ggplot2",
+          "jsonlite","testthat"))'
+      - name: Install TinyTeX for the PDF
+        run: quarto install tinytex --no-prompt
+      - name: Build pipeline (live Eurostat) + render paper
+        run: Rscript analysis/run.R
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper
+          path: |
+            paper/working_paper.html
+            paper/working_paper.pdf
+          if-no-files-found: warn
+
+  deploy:
+    needs: [slides, paper]
+    if: always()
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download slides artifact
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: slides
+          path: _in/slides
+      - name: Download paper artifact
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: paper
+          path: _in/paper
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp site/index.html            _site/index.html
+          cp handout/handout.html       _site/handout.html
+          cp assets/loop-diagram.svg    _site/loop-diagram.svg
+          [ -f _in/slides/slides.html ] && cp _in/slides/slides.html _site/slides.html || echo "no slides.html"
+          [ -f _in/slides/slides.pdf ]  && cp _in/slides/slides.pdf  _site/slides.pdf  || echo "no slides.pdf"
+          [ -f _in/paper/working_paper.html ] && cp _in/paper/working_paper.html _site/working_paper.html || echo "no paper.html"
+          [ -f _in/paper/working_paper.pdf ]  && cp _in/paper/working_paper.pdf  _site/working_paper.pdf  || echo "no paper.pdf"
+          ls -la _site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

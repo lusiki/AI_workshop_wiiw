@@ -119,6 +119,20 @@ Pricing figures in the slides and handout were checked against current Claude
 pricing; **re-verify at claude.com/pricing the week of the talk** (the deck and
 handout both carry that reminder).
 
+### Hosted site (GitHub Pages)
+
+[.github/workflows/publish.yml](.github/workflows/publish.yml) renders the slides
+(and, best-effort, the working paper) and publishes them on every push to `main`.
+The `slides` job is Quarto-only and fast; the `paper` job runs the full R pipeline
+against live Eurostat data and is `continue-on-error`, so it never blocks the
+slides + handout from going out. A [decktape](https://github.com/astefanutti/decktape)
+step also exports the deck to `slides.pdf` as a printable fallback.
+
+**One-time setup:** in the repo, **Settings → Pages → Source → "GitHub Actions"**.
+After that the site is served at **https://lusiki.github.io/AI_workshop_wiiw/**
+(landing page → slides, handout, slide PDF, working paper). Until Pages is enabled
+the deploy step fails while the slides/paper still build as artifacts.
+
 ## Data availability
 
 All data are **public**. Real GDP per capita (chain-linked volumes,
