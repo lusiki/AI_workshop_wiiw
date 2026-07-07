@@ -44,12 +44,12 @@ The technology is already inside the research production function.
 ## Adoption is happening — the only question is whether it is deliberate {.smaller}
 
 ::: {.cols}
-::: {}
+::: {.col}
 **Diffusion, at unprecedented pace**
 
 Chatterji et al. (2025) — population-scale usage across *asking, doing, expressing*, spanning work and personal life.
 :::
-::: {}
+::: {.col}
 **The canonical causal microevidence**
 
 Brynjolfsson, Li & Raymond (2025, *QJE*) — a customer-support deployment: average productivity **+14–15%**, gains concentrated among the *newest* workers, the skill distribution **compressed**.
@@ -130,14 +130,14 @@ You write plain-language requests and approve plans. The agent does everything b
 ## Context & the plan gate {.smaller}
 
 ::: {.cols}
-::: {}
+::: {.col}
 [1]{.chip} **Context — `CLAUDE.md`**
 
 The project constitution the agent reads every session. Lean (~120 lines): principles, folders, commands, current state. Path-scoped rules load only when the agent touches matching files (R rules with any `.R`, house style with the manuscript).
 
 *Prevents:* the agent forgetting decisions and reverting to generic defaults.
 :::
-::: {}
+::: {.col}
 [2]{.chip} **The plan gate**
 
 For any nontrivial task the agent plans in **read-only** mode, saves the plan to disk, and waits for approval. Plans survive context compaction and create an audit trail.
@@ -149,14 +149,14 @@ For any nontrivial task the agent plans in **read-only** mode, saves the plan to
 ## Permissions & verification {.smaller}
 
 ::: {.cols}
-::: {}
+::: {.col}
 [3]{.chip} **Permission-scoped execution**
 
 A settings file allowlists exactly which commands run without asking — `Rscript`, `quarto render`, read-only `git`. Destructive git, `rm -rf`, and reads under `data/restricted/` are **denied**.
 
 *Prevents:* an autonomous process with unbounded ability to touch the machine.
 :::
-::: {}
+::: {.col}
 [4]{.chip} **Verification**
 
 Never "done" without compiling, rendering or testing. Three mechanisms: **replication-first**, an **adversarial critic → fixer** loop, and **numeric provenance** — every quoted number anchored to the script that produced it.
@@ -188,12 +188,12 @@ A wiiw working-paper section, produced end to end.
 **Income convergence in the CESEE EU members since accession** — a small staggered event study around the 2004 / 2007 / 2013 waves. Data public, econometrics familiar: all attention on the **workflow**.
 
 ::: {.cols}
-::: {}
+::: {.col}
 - `eurostat` → live data pull
 - `fixest` (Sun & Abraham) + `did`
 - `modelsummary` tables
 :::
-::: {}
+::: {.col}
 - Quarto → wiiw-branded PDF
 - `renv` pins versions
 - `targets` = one-command pipeline
@@ -244,7 +244,7 @@ Subscriptions: **Pro** \$20/mo (\$17 annual) · **Max** \$100 & \$200 · **Team*
 ## Cost engineering: route models, cache context, set effort {.smaller}
 
 ::: {.cols}
-::: {}
+::: {.col}
 **Route by task — the 70/20/10 pattern**
 
 - **≈70%** mechanical → Haiku
@@ -253,7 +253,7 @@ Subscriptions: **Pro** \$20/mo (\$17 annual) · **Max** \$100 & \$200 · **Team*
 
 Saves half or more vs running everything on the frontier tier.
 :::
-::: {}
+::: {.col}
 **Two more levers**
 
 - **Prompt caching** — keep system context stable across turns (most of an agentic session is repeated context).
@@ -288,12 +288,12 @@ What never to delegate.
 ## The division of labour {.smaller}
 
 ::: {.cols}
-::: {}
+::: {.col}
 **Agents excel at**
 
 mechanical transformation · refactoring · formatting · first-pass literature scans · replication packaging · robustness sweeps
 :::
-::: {}
+::: {.col}
 **Humans keep**
 
 question choice · identification arguments · interpretation · ethical judgement · the final voice of the prose
@@ -323,7 +323,7 @@ question choice · identification arguments · interpretation · ethical judgeme
 ## Reading list, mapped to the seminar {.smaller}
 
 ::: {.cols}
-::: {}
+::: {.col}
 - Korinek (2023, *JEL*) — founding taxonomy — *A*
 - Korinek (2025, NBER) — chatbots → agents — *A / 2*
 - Dell (2025, *JEL*) — DL as data creation — *A*
@@ -332,7 +332,7 @@ question choice · identification arguments · interpretation · ethical judgeme
 - Ludwig, Mullainathan & Rambachan (2025) — two valid uses — *B / 5*
 - Athey, Keleher & Spiess (2025) — nudge whom — *B*
 :::
-::: {}
+::: {.col}
 - Gavrilova et al. (2025) — forests inside DiD — *B*
 - Chen, Cheng, Liu & Tang (2026) — theory-guided TL — *B*
 - Brynjolfsson, Li & Raymond (2025, *QJE*) — field evidence — *hook / 5*
