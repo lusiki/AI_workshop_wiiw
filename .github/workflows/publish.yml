@@ -93,8 +93,11 @@ jobs:
           if-no-files-found: warn
 
   deploy:
-    needs: [slides, paper]
-    if: always()
+    # Depends on `slides` ONLY — the fast, reliable job. The `paper` job runs in
+    # parallel and must never gate publishing (it hits live Eurostat and can be
+    # slow or fail). Once the paper build is reliably green, add `paper` back here
+    # if you want the working-paper PDF auto-published alongside the slides.
+    needs: [slides]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
