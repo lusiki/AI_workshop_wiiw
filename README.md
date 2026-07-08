@@ -2,6 +2,16 @@
 
 [![publish](https://github.com/lusiki/AI_workshop_wiiw/actions/workflows/publish.yml/badge.svg)](https://github.com/lusiki/AI_workshop_wiiw/actions/workflows/publish.yml)
 
+### 📊 The seminar presentation
+
+- **▶ [Slides — HTML presentation](https://lusiki.github.io/AI_workshop_wiiw/slides.html)** (reveal.js; arrow keys to navigate)
+- **⬇ [Slides — PDF](https://lusiki.github.io/AI_workshop_wiiw/slides.pdf)** (printable fallback)
+- ▤ [One-page handout](https://lusiki.github.io/AI_workshop_wiiw/handout.html) · 🏠 [landing page](https://lusiki.github.io/AI_workshop_wiiw/)
+
+<sub>Hosted on GitHub Pages via the `publish` workflow. Links go live after Pages is enabled (**Settings → Pages → Source: GitHub Actions**) and the first deploy succeeds.</sub>
+
+---
+
 A **minimal** agentic pipeline for wiiw working-paper production: the smallest
 set of components that makes delegating research work to an AI coding agent
 (Claude Code) both safe and productive. It ships a real, reproducible analysis —
