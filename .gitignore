@@ -31,6 +31,11 @@ paper/working_paper.html
 paper/working_paper_files/
 paper/*.tex
 
+# --- slides / script build artefacts (render locally; CI publishes its own) ---
+slides/*.html
+slides/*.pdf
+slides/*_files/
+
 # --- R session ---------------------------------------------------------------
 .Rhistory
 .RData

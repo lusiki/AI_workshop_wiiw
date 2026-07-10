@@ -108,8 +108,9 @@ data/derived/          reproducible from raw
 data/restricted/       read-denied; restricted microdata never enters a prompt
 tests/testthat/        schema, tolerance, and numeric-provenance checks
 demo/                  planted-bug scripts + the minute-by-minute RUNBOOK.md
-slides/                reveal.js deck (slides.qmd) + wiiw theme (theme.scss)
+slides/                reveal.js deck (slides.qmd) + theme + SCRIPT.md delivery script
 handout/               one-page print-ready handout (handout.html)
+reading/               PAPERS.md — verified notes on the 15 reading-list papers
 assets/                shared design assets (loop-diagram.svg)
 setup.R  renv.lock     pinned R environment
 ```
@@ -123,8 +124,10 @@ figures.
 | Material | File | Render / view |
 |----------|------|---------------|
 | Slides (~20, reveal.js) | [slides/slides.qmd](slides/slides.qmd) | `quarto render slides/slides.qmd` → self-contained `slides.html` |
+| Full-hour delivery script | [slides/SCRIPT.md](slides/SCRIPT.md) | what to do, show and say, slide by slide — timing spine, transitions, Q&A prep |
 | One-page handout | [handout/handout.html](handout/handout.html) | open in a browser; print to PDF (landscape A4, one page) |
 | Demo run-book | [demo/RUNBOOK.md](demo/RUNBOOK.md) | minute-by-minute script, planted-bug rehearsal, 60-second fallback |
+| Reading notes | [reading/PAPERS.md](reading/PAPERS.md) | the 15 reading-list papers, each summarized as if read — verified against sources |
 | Loop diagram | [assets/loop-diagram.svg](assets/loop-diagram.svg) | shared by the slides and the handout |
 
 Pricing figures in the slides and handout were checked against current Claude
