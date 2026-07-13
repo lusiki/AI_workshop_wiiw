@@ -4,15 +4,15 @@
 
 ### 📊 The seminar presentation
 
-<a href="https://lusiki.github.io/AI_workshop_wiiw/slides.html" title="Open the HTML slides"><img src="assets/qr-slides.png" alt="QR code linking to the HTML presentation" width="150" align="right"></a>
+<a href="https://lusiki.github.io/AI_workshop_wiiw/" title="Open the seminar landing page"><img src="assets/qr-landing.png" alt="QR code linking to the seminar landing page" width="150" align="right"></a>
 
-- **▶ [Slides — HTML presentation](https://lusiki.github.io/AI_workshop_wiiw/slides.html)** (reveal.js; arrow keys to navigate) — or scan the QR →
+- **▶ [Slides — HTML presentation](https://lusiki.github.io/AI_workshop_wiiw/slides.html)** (reveal.js; arrow keys to navigate)
 - **⬇ [Slides — PDF](https://lusiki.github.io/AI_workshop_wiiw/slides.pdf)** (printable fallback)
 - **📄 [Working paper — HTML](https://lusiki.github.io/AI_workshop_wiiw/working_paper.html)** (rendered live from Eurostat by the pipeline)
 - 📚 [Reading list — all 15 papers, with verified notes](reading/PAPERS.md)
-- ▤ [One-page handout](https://lusiki.github.io/AI_workshop_wiiw/handout.html) · 🏠 [landing page](https://lusiki.github.io/AI_workshop_wiiw/)
+- ▤ [One-page handout](https://lusiki.github.io/AI_workshop_wiiw/handout.html) · 🏠 [landing page](https://lusiki.github.io/AI_workshop_wiiw/) — or scan the QR →
 
-<sub>Hosted on GitHub Pages via the `publish` workflow. The QR code points to the hosted HTML deck. Links go live after Pages is enabled (**Settings → Pages → Source: GitHub Actions**) and the first deploy succeeds.</sub>
+<sub>Hosted on GitHub Pages via the `publish` workflow. The QR code points to the hosted landing page. Links go live after Pages is enabled (**Settings → Pages → Source: GitHub Actions**) and the first deploy succeeds.</sub>
 
 ---
 
