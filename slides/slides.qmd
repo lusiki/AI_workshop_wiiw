@@ -50,12 +50,12 @@ The technology is already inside the research production function.
 ::: {.col}
 **Diffusion, at unprecedented pace**
 
-Chatterji et al. (2025) — population-scale usage across *asking, doing, expressing*, spanning work and personal life.
+[Chatterji et al. (2025)](https://www.nber.org/papers/w34255) — population-scale usage across *asking, doing, expressing*, spanning work and personal life.
 :::
 ::: {.col}
 **The canonical causal microevidence**
 
-Brynjolfsson, Li & Raymond (2025, *QJE*) — a customer-support deployment: average productivity **+14–15%**, gains concentrated among the *newest* workers, the skill distribution **compressed**.
+[Brynjolfsson, Li & Raymond (2025, *QJE*)](https://www.nber.org/papers/w31161) — a customer-support deployment: average productivity **+14–15%**, gains concentrated among the *newest* workers, the skill distribution **compressed**.
 :::
 :::
 
@@ -78,11 +78,11 @@ Tool · Instrument · Object
 
 ## Lens A — AI as a *tool* that shifts the research production function {.smaller}
 
-- **Korinek (2023, *JEL*)** — founding taxonomy. LLMs assist across the whole pipeline; usefulness rises as **verification cost falls**. *Verification cost is the organizing variable.*
-- **Korinek (2025, NBER)** — the shift this seminar is about: **chatbots → agents**. An agent is *model + tools + memory + iteration*.
-- **Dell (2025, *JEL*)** — deep learning as **data creation**: OCR, embeddings, linkage unlock trapped sources.
-- **Bahoo et al. (2025)** — the adoption map across subfields.
-- **Sant'Anna (2026)** — the practitioner's missing manual. *Deployed in Part 2.*
+- **[Korinek (2023, *JEL*)](https://doi.org/10.1257/jel.20231736)** — founding taxonomy. LLMs assist across the whole pipeline; usefulness rises as **verification cost falls**. *Verification cost is the organizing variable.*
+- **[Korinek (2025, NBER)](https://www.nber.org/papers/w34202)** — the shift this seminar is about: **chatbots → agents**. An agent is *model + tools + memory + iteration*.
+- **[Dell (2025, *JEL*)](https://arxiv.org/abs/2407.15339)** — deep learning as **data creation**: OCR, embeddings, linkage unlock trapped sources.
+- **[Bahoo et al. (2025)](https://doi.org/10.1111/joes.12694)** — the adoption map across subfields.
+- **[Sant'Anna (2026)](https://github.com/pedrohcgs/claude-code-my-workflow)** — the practitioner's missing manual. *Deployed in Part 2.*
 
 ::: {.src}
 For wiiw: historical CESEE statistics, national gazettes and firm registries become tractable.
@@ -91,21 +91,21 @@ For wiiw: historical CESEE statistics, national gazettes and firm registries bec
 ## Lens B — AI as an *instrument*, with warnings {.smaller}
 
 ::: {.catch}
-**Ludwig, Mullainathan & Rambachan (2025, NBER)** — the discipline paper. LLM outputs enter a pipeline **two** valid ways: **prediction** (needs an out-of-training-sample argument you cannot inspect) or **estimation** (needs a **human-labelled gold-standard** subsample). Otherwise measurement error contaminates estimates.
+**[Ludwig, Mullainathan & Rambachan (2025, NBER)](https://www.nber.org/papers/w33344)** — the discipline paper. LLM outputs enter a pipeline **two** valid ways: **prediction** (needs an out-of-training-sample argument you cannot inspect) or **estimation** (needs a **human-labelled gold-standard** subsample). Otherwise measurement error contaminates estimates.
 :::
 
-- **Athey, Keleher & Spiess (2025)** — predicting *who is worst off* ≠ predicting *who responds*. Whom to nudge is **causal**.
-- **Gavrilova et al. (2025)** — causal forests *inside* a DiD design: heterogeneity from the algorithm, **identification from the design**.
-- **Chen, Cheng, Liu & Tang (2026)** — theory-guided transfer learning: structure regularizes a flexible learner; biggest gains in **small samples**.
+- **[Athey, Keleher & Spiess (2025)](https://arxiv.org/abs/2310.08672)** — predicting *who is worst off* ≠ predicting *who responds*. Whom to nudge is **causal**.
+- **[Gavrilova et al. (2025)](https://www.ifo.de/en/cesifo/publications/2023/working-paper/difference-difference-causal-forests-application-payroll-tax)** — causal forests *inside* a DiD design: heterogeneity from the algorithm, **identification from the design**.
+- **[Chen, Cheng, Liu & Tang (2026)](https://www.nber.org/papers/w34713)** — theory-guided transfer learning: structure regularizes a flexible learner; biggest gains in **small samples**.
 
 **One rule for the room:** no machine-generated variable enters a regression without a human-labelled validation set.
 
 ## Lens C — AI as an *object* of study, and a force on the profession {.smaller}
 
-- **Acemoglu (2025)** — sober task-based benchmark: cumulative TFP gains **< 1pp** over a decade. A defensible lower bound.
-- **Jones (2026)** — the growth-theory counterweight. *Weak links* cap gains at the hard human tasks — yet automating *nearly everything* still delivers large acceleration. The debate is about **timing and bottlenecks**, not direction.
-- **Brynjolfsson, Korinek & Agrawal (2026)** — the research agenda if AI is transformative. A menu of wiiw-sized questions: CESEE convergence, labour reallocation, nearshoring.
-- **Mullainathan (2025)** — algorithms now sit *inside* the economy as decision-makers. **The profession itself is part of the treatment group.**
+- **[Acemoglu (2025)](https://www.nber.org/papers/w32487)** — sober task-based benchmark: cumulative TFP gains **< 1pp** over a decade. A defensible lower bound.
+- **[Jones (2026)](https://www.nber.org/papers/w34779)** — the growth-theory counterweight. *Weak links* cap gains at the hard human tasks — yet automating *nearly everything* still delivers large acceleration. The debate is about **timing and bottlenecks**, not direction.
+- **[Brynjolfsson, Korinek & Agrawal (2026)](https://www.nber.org/papers/w34256)** — the research agenda if AI is transformative. A menu of wiiw-sized questions: CESEE convergence, labour reallocation, nearshoring.
+- **[Mullainathan (2025)](https://doi.org/10.1257/pandp.20251118)** — algorithms now sit *inside* the economy as decision-makers. **The profession itself is part of the treatment group.**
 
 ## The bridge {.center .smaller}
 
@@ -328,23 +328,23 @@ question choice · identification arguments · interpretation · ethical judgeme
 
 ::: {.cols}
 ::: {.col}
-- Korinek (2023, *JEL*) — founding taxonomy — *A*
-- Korinek (2025, NBER) — chatbots → agents — *A / 2*
-- Dell (2025, *JEL*) — DL as data creation — *A*
-- Bahoo et al. (2025) — adoption map — *A*
-- Sant'Anna (2026) — the practitioner manual — *2 / 3*
-- Ludwig, Mullainathan & Rambachan (2025) — two valid uses — *B / 5*
-- Athey, Keleher & Spiess (2025) — nudge whom — *B*
+- [Korinek (2023, *JEL*)](https://doi.org/10.1257/jel.20231736) — founding taxonomy — *A*
+- [Korinek (2025, NBER)](https://www.nber.org/papers/w34202) — chatbots → agents — *A / 2*
+- [Dell (2025, *JEL*)](https://arxiv.org/abs/2407.15339) — DL as data creation — *A*
+- [Bahoo et al. (2025)](https://doi.org/10.1111/joes.12694) — adoption map — *A*
+- [Sant'Anna (2026)](https://github.com/pedrohcgs/claude-code-my-workflow) — the practitioner manual — *2 / 3*
+- [Ludwig, Mullainathan & Rambachan (2025)](https://www.nber.org/papers/w33344) — two valid uses — *B / 5*
+- [Athey, Keleher & Spiess (2025)](https://arxiv.org/abs/2310.08672) — nudge whom — *B*
 :::
 ::: {.col}
-- Gavrilova et al. (2025) — forests inside DiD — *B*
-- Chen, Cheng, Liu & Tang (2026) — theory-guided TL — *B*
-- Brynjolfsson, Li & Raymond (2025, *QJE*) — field evidence — *hook / 5*
-- Chatterji et al. (2025) — usage at scale — *hook*
-- Acemoglu (2025) — sober benchmark — *C*
-- Jones (2026) — weak links vs acceleration — *C / 5*
-- Brynjolfsson, Korinek & Agrawal (2026) — the agenda — *C*
-- Mullainathan (2025) — objects & instruments — *bridge*
+- [Gavrilova et al. (2025)](https://www.ifo.de/en/cesifo/publications/2023/working-paper/difference-difference-causal-forests-application-payroll-tax) — forests inside DiD — *B*
+- [Chen, Cheng, Liu & Tang (2026)](https://www.nber.org/papers/w34713) — theory-guided TL — *B*
+- [Brynjolfsson, Li & Raymond (2025, *QJE*)](https://www.nber.org/papers/w31161) — field evidence — *hook / 5*
+- [Chatterji et al. (2025)](https://www.nber.org/papers/w34255) — usage at scale — *hook*
+- [Acemoglu (2025)](https://www.nber.org/papers/w32487) — sober benchmark — *C*
+- [Jones (2026)](https://www.nber.org/papers/w34779) — weak links vs acceleration — *C / 5*
+- [Brynjolfsson, Korinek & Agrawal (2026)](https://www.nber.org/papers/w34256) — the agenda — *C*
+- [Mullainathan (2025)](https://doi.org/10.1257/pandp.20251118) — objects & instruments — *bridge*
 :::
 :::
 
