@@ -591,8 +591,7 @@ review — and the tool just made review the most valuable thing in the building
 **SAY** — "Everything you saw is at **github dot com, slash lusiki, slash AI underscore workshop
 underscore wiiw.** Clone it this afternoon. Paste the starter prompt on the screen — it encodes the
 whole plan-first, verify-everything discipline in one paragraph — fill in your project, and produce
-a compiled section on your own machine, today. And there is a ninety-minute hands-on clinic within
-two weeks, so you're not doing it alone."
+a compiled section on your own machine, today."
 
 **SAY** *(if time — otherwise skip straight to the last line)* — "The reading list on the next slide
 maps every paper back to its lens, so your literature review has a spine before you write a word."

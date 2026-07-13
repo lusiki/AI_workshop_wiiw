@@ -317,7 +317,7 @@ question choice · identification arguments · interpretation · ethical judgeme
 3. **The binding constraint is your verification, not the machine's generation.** Design for cheap checking and honest numbers.
 
 ::: {.catch}
-**Clone it this afternoon:** **[github.com/lusiki/AI_workshop_wiiw](https://github.com/lusiki/AI_workshop_wiiw)** — paste the starter prompt, produce a compiled section on your own machine. A 90-minute hands-on clinic follows within two weeks.
+**Clone it this afternoon:** **[github.com/lusiki/AI_workshop_wiiw](https://github.com/lusiki/AI_workshop_wiiw)** — paste the starter prompt, produce a compiled section on your own machine.
 :::
 
 ## The starter prompt {.smaller}
