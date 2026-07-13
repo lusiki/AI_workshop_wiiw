@@ -24,7 +24,9 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Let an in-flight Pages deployment finish; queued runs still collapse to the
+  # latest. This is GitHub's recommended setting for Pages deploys.
+  cancel-in-progress: false
 
 jobs:
   slides:
@@ -80,7 +82,11 @@ jobs:
           path: data/raw
           key: eurostat-${{ hashFiles('R/config.R') }}
           restore-keys: eurostat-
-      - name: Install TinyTeX for the PDF
+      # Kept so re-enabling the qmd's pdf format later needs no CI change. The
+      # HTML-only render needs no LaTeX, so this must never block the build/upload
+      # if a CTAN mirror hiccups -- otherwise the paper link would go dark.
+      - name: Install TinyTeX (only needed if PDF output is re-enabled)
+        continue-on-error: true
         run: quarto install tinytex --no-prompt
       - name: Build pipeline (live Eurostat, cached) + render paper
         run: Rscript analysis/run.R
@@ -93,11 +99,12 @@ jobs:
           if-no-files-found: warn
 
   deploy:
-    # Depends on `slides` ONLY — the fast, reliable job. The `paper` job runs in
-    # parallel and must never gate publishing (it hits live Eurostat and can be
-    # slow or fail). Once the paper build is reliably green, add `paper` back here
-    # if you want the working-paper PDF auto-published alongside the slides.
-    needs: [slides]
+    # Wait for BOTH build jobs so the paper artifact is available when the site is
+    # assembled. `paper` is continue-on-error, so a slow/unavailable Eurostat pull
+    # or a package hiccup still never blocks the deploy: a failed paper build just
+    # leaves its file absent and the guarded cp below skips it (the paper link is
+    # then dead only until the next green run), while slides + handout still go out.
+    needs: [slides, paper]
     runs-on: ubuntu-latest
     environment:
       name: github-pages

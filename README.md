@@ -8,6 +8,7 @@
 
 - **▶ [Slides — HTML presentation](https://lusiki.github.io/AI_workshop_wiiw/slides.html)** (reveal.js; arrow keys to navigate) — or scan the QR →
 - **⬇ [Slides — PDF](https://lusiki.github.io/AI_workshop_wiiw/slides.pdf)** (printable fallback)
+- **📄 [Working paper — HTML](https://lusiki.github.io/AI_workshop_wiiw/working_paper.html)** (rendered live from Eurostat by the pipeline)
 - 📚 [Reading list — all 15 papers, with verified notes](reading/PAPERS.md)
 - ▤ [One-page handout](https://lusiki.github.io/AI_workshop_wiiw/handout.html) · 🏠 [landing page](https://lusiki.github.io/AI_workshop_wiiw/)
 
@@ -34,7 +35,7 @@ The five components, and the failure each one prevents:
 ## Prerequisites
 
 - **R** ≥ 4.2 and **Quarto** ≥ 1.4
-- A **LaTeX** distribution (TinyTeX is enough: `quarto install tinytex`)
+- **LaTeX** only if you want PDF output (`quarto install tinytex`); the paper renders to self-contained HTML without it
 - **git**
 - **Node.js** ≥ 18 (only to install Claude Code)
 - Claude Code: `npm install -g @anthropic-ai/claude-code` (see the official docs)
@@ -55,8 +56,8 @@ Rscript setup.R
 # 3. Build the pipeline live from Eurostat (first run pulls and caches data)
 Rscript analysis/run.R
 
-# 4. Open the compiled paper
-#    -> paper/working_paper.pdf
+# 4. Open the rendered paper
+#    -> paper/working_paper.html
 
 # 5. Start the agent and paste the starter prompt below
 claude
@@ -127,6 +128,7 @@ figures.
 | Material | File | Render / view |
 |----------|------|---------------|
 | Slides (~20, reveal.js) | [slides/slides.qmd](slides/slides.qmd) | `quarto render slides/slides.qmd` → self-contained `slides.html` |
+| Working paper | [paper/working_paper.qmd](paper/working_paper.qmd) | `Rscript analysis/run.R` → self-contained `working_paper.html` · [hosted](https://lusiki.github.io/AI_workshop_wiiw/working_paper.html) |
 | Full-hour delivery script | [slides/SCRIPT.md](slides/SCRIPT.md) | what to do, show and say, slide by slide — timing spine, transitions, Q&A prep |
 | One-page handout | [handout/handout.html](handout/handout.html) | open in a browser; print to PDF (landscape A4, one page) |
 | Demo run-book | [demo/RUNBOOK.md](demo/RUNBOOK.md) | minute-by-minute script, planted-bug rehearsal, 60-second fallback |
