@@ -45,9 +45,19 @@ $link-color-hover: $wiiw-amber;
 
 .reveal .slide-number { color: $muted; }
 
-.reveal p, .reveal li { line-height: 1.35; }
+.reveal p, .reveal li { line-height: 1.4; }
 .reveal ul { margin-left: 0.4em; }
-.reveal li { margin-bottom: 0.25em; }
+.reveal li { margin-bottom: 0.4em; }
+
+// Even vertical rhythm. With center:true the content block sits mid-slide;
+// give adjacent blocks room so a slide breathes instead of stacking tight.
+.reveal .slides section > * + * { margin-top: 0.7em; }
+.reveal .slides section > .cols,
+.reveal .slides section > .catch { margin-top: 0.85em; }
+
+// Links are clickable in the HTML deck — make that legible.
+.reveal a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.reveal a:hover { color: $wiiw-amber; }
 
 // Lede paragraph under a title.
 .reveal .lede { color: $muted; font-size: 0.9em; }
@@ -85,9 +95,15 @@ $link-color-hover: $wiiw-amber;
 // Source/footnote line.
 .reveal .src { color: $muted; font-size: 0.62em; margin-top: 0.6em; }
 
-// Title slide.
+// Title slide — author (name) and institute render as links.
 .reveal .title-slide h1 { color: $wiiw-blue; }
 .reveal .subtitle { color: $muted; }
+.reveal .quarto-title-author-name,
+.reveal .title-slide .author { font-size: 0.95em; font-weight: 600; margin-top: 0.5em; }
+.reveal .quarto-title-affiliation,
+.reveal .title-slide .institute { color: $muted; font-size: 0.72em; }
+.reveal .title-slide a { color: $wiiw-blue; }
+.reveal .title-slide a:hover { color: $wiiw-amber; }
 
 // Dark-theme legibility: if the deck is viewed on a dark background, keep
 // headings readable by lightening the blue.

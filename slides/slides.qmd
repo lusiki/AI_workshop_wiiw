@@ -1,7 +1,8 @@
 ---
 title: "AI in Economics Research"
 subtitle: "From Frontier Ideas to a Working Agentic Pipeline"
-author: "A seminar for wiiw · The Vienna Institute for International Economic Studies"
+author: "[Luka Šikić](https://lukasikic.info)"
+institute: "A seminar for [wiiw — The Vienna Institute for International Economic Studies](https://wiiw.ac.at)"
 date: last-modified
 format:
   revealjs:
@@ -10,12 +11,14 @@ format:
     controls: true
     progress: true
     hash: true
-    center: false
+    center: true
     width: 1200
     height: 800
     margin: 0.08
     embed-resources: true
     fig-align: center
+    link-external-newwindow: true
+    link-external-icon: false
 ---
 
 ## By the end of the hour you leave with three things {.smaller}
@@ -34,7 +37,7 @@ The *minimum* set of components that makes delegating research work to an AI age
 :::
 
 ::: {.src}
-Repository: **github.com/lusiki/AI_workshop_wiiw** — clone it this afternoon.
+Repository: **[github.com/lusiki/AI_workshop_wiiw](https://github.com/lusiki/AI_workshop_wiiw)** — clone it this afternoon.
 :::
 
 # 0 · Hook {.center}
@@ -201,23 +204,24 @@ A wiiw working-paper section, produced end to end.
 :::
 
 ::: {.src}
-A pleasant aside: the workflow guide and the modern DiD estimator in `did` **share an author** — the tooling and the econometrics come from the same intellectual household.
+The workflow guide and the modern DiD estimator in `did` **share an author** — Pedro Sant'Anna.
 :::
 
-## The money moment {.smaller}
+## The catch — verification fails the build on a stale number {.smaller}
 
-One request, planning first: *"Extend the sample through 2025, refresh Figure 2, rerun the event study, update the results paragraph."*
+One plain-language request, planning first:
+*"Extend the sample through 2025, refresh Figure 2, rerun the event study, and update the results paragraph."*
 
-1. Agent enters **plan mode** → you read it aloud → **approve.** *This is the moment of delegation.*
-2. Execution runs inside the **permission fence** — narrate what it allows and blocks.
+1. The agent enters **plan mode**, writes the plan, and waits for approval. **Approval is the moment of delegation.**
+2. Execution then runs inside the **permission fence**: only allowlisted commands (`Rscript`, `quarto render`, read-only `git`) proceed; destructive git and reads under `data/restricted/` are blocked.
 
 ::: {.catch}
-**Verification catches a planted bug** — a results number typed by hand that no longer matches the refreshed table. The critic flags it, the fixer repairs it, the render passes.
+Verification finds a results number — **typed by hand** — that no longer matches the refreshed table. The adversarial critic flags it, a separate fixer restores the code-backed reference, and the render passes clean.
 
-**This is the slide where the skeptics convert** — the pipeline caught what a tired human on a deadline would miss.
+The pipeline catches the error a tired researcher on a deadline would ship.
 :::
 
-Then: `git diff` · quality score · **commit.** Hold up the compiled PDF.
+The loop then closes: `git diff` → advisory **quality score** → **commit** → the compiled, wiiw-branded PDF.
 
 # 4 · Pricing & infrastructure {.center}
 
@@ -313,7 +317,7 @@ question choice · identification arguments · interpretation · ethical judgeme
 3. **The binding constraint is your verification, not the machine's generation.** Design for cheap checking and honest numbers.
 
 ::: {.catch}
-**Clone it this afternoon:** `github.com/lusiki/AI_workshop_wiiw` — paste the starter prompt, produce a compiled section on your own machine. A 90-minute hands-on clinic follows within two weeks.
+**Clone it this afternoon:** **[github.com/lusiki/AI_workshop_wiiw](https://github.com/lusiki/AI_workshop_wiiw)** — paste the starter prompt, produce a compiled section on your own machine. A 90-minute hands-on clinic follows within two weeks.
 :::
 
 ## The starter prompt {.smaller}
@@ -342,4 +346,8 @@ question choice · identification arguments · interpretation · ethical judgeme
 - Brynjolfsson, Korinek & Agrawal (2026) — the agenda — *C*
 - Mullainathan (2025) — objects & instruments — *bridge*
 :::
+:::
+
+::: {.src}
+Full verified notes on all 15 papers: **[reading/PAPERS.md](https://github.com/lusiki/AI_workshop_wiiw/blob/main/reading/PAPERS.md)** · Repository: **[github.com/lusiki/AI_workshop_wiiw](https://github.com/lusiki/AI_workshop_wiiw)**
 :::
