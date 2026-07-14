@@ -11,11 +11,15 @@
   :root{
     --bg:#ffffff; --ink:#0b0b0c; --muted:#6c7075; --faint:#9aa0a6;
     --line:#e7e8ea; --line-strong:#0b0b0c; --hover:#f5f6f7;
+    --accent:#00437b; --accent-2:#e8a33d;
+    --c1:#00437b; --c2:#0e6e5c; --c3:#9a5b00; --c4:#7b3b6e;
   }
   @media (prefers-color-scheme:dark){
     :root{
       --bg:#0a0b0c; --ink:#f2f3f4; --muted:#9096a0; --faint:#6b7178;
       --line:#20242a; --line-strong:#f2f3f4; --hover:#12151a;
+      --accent:#7db3e0; --accent-2:#f2b24f;
+      --c1:#7db3e0; --c2:#57c4ad; --c3:#f2b24f; --c4:#d98cc0;
     }
   }
   *{box-sizing:border-box}
@@ -33,7 +37,7 @@
   /* ---- header ---- */
   .kicker{
     font-family:"Roboto Mono",ui-monospace,monospace; font-size:12px; font-weight:500;
-    text-transform:uppercase; letter-spacing:.34em; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.34em; color:var(--accent);
     margin:0 0 clamp(28px,6vw,44px);
   }
   h1{
@@ -57,20 +61,30 @@
     position:relative; transition:background-color .18s ease;
   }
   a.row:hover,a.row:focus-visible{background:var(--hover); outline:none}
+  .list > a.row:nth-child(1){--rc:var(--c1)}
+  .list > a.row:nth-child(2){--rc:var(--c2)}
+  .list > a.row:nth-child(3){--rc:var(--c3)}
+  .list > a.row:nth-child(4){--rc:var(--c4)}
+  a.row::before{
+    content:""; position:absolute; left:-14px; top:22%; bottom:22%; width:3px;
+    border-radius:2px; background:var(--rc,var(--ink));
+    transform:scaleY(0); transform-origin:center; transition:transform .18s ease;
+  }
+  a.row:hover::before,a.row:focus-visible::before{transform:scaleY(1)}
   .idx{
-    font-family:"Roboto Mono",ui-monospace,monospace; font-size:.78rem; font-weight:400;
-    color:var(--faint); padding-top:.35em; letter-spacing:.02em;
+    font-family:"Roboto Mono",ui-monospace,monospace; font-size:.78rem; font-weight:500;
+    color:var(--rc,var(--faint)); padding-top:.35em; letter-spacing:.02em;
   }
   .rowbody{min-width:0}
   .rowtitle{
     font-weight:500; font-size:clamp(1.08rem,2.6vw,1.32rem); letter-spacing:-.012em;
     display:inline-block; transition:transform .18s ease;
   }
-  a.row:hover .rowtitle,a.row:focus-visible .rowtitle{transform:translateX(4px)}
+  a.row:hover .rowtitle,a.row:focus-visible .rowtitle{transform:translateX(4px); color:var(--rc,var(--ink))}
   .rowdesc{color:var(--muted); font-size:.9rem; line-height:1.5; margin-top:6px; max-width:46ch}
   .tag{
     font-family:"Roboto Mono",ui-monospace,monospace; font-size:.62rem; font-weight:500;
-    text-transform:uppercase; letter-spacing:.2em; color:var(--bg); background:var(--ink);
+    text-transform:uppercase; letter-spacing:.2em; color:#0b0b0c; background:var(--accent-2);
     padding:3px 7px; border-radius:2px; margin-left:12px; vertical-align:middle;
     position:relative; top:-2px;
   }
@@ -78,19 +92,21 @@
     font-family:"Roboto Mono",ui-monospace,monospace; font-size:1.2rem; color:var(--faint);
     padding-top:.15em; transition:transform .18s ease,color .18s ease;
   }
-  a.row:hover .arrow,a.row:focus-visible .arrow{transform:translateX(5px); color:var(--ink)}
+  a.row:hover .arrow,a.row:focus-visible .arrow{transform:translateX(5px); color:var(--rc,var(--ink))}
 
   /* ---- footer ---- */
   footer{
     margin-top:clamp(40px,8vw,64px); font-size:.82rem; color:var(--faint); line-height:1.7;
   }
-  footer a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line);
+  footer a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent);
     transition:color .18s ease,border-color .18s ease}
   footer a:hover{color:var(--ink); border-color:var(--line-strong)}
+  a.author{font-weight:500}
   .dot{margin:0 .6em; color:var(--line-strong); opacity:.4}
   @media (max-width:440px){
     a.row{grid-template-columns:1fr auto; column-gap:18px}
     .idx{display:none}
+    .arrow{color:var(--rc,var(--faint))}
     .dot{display:block; margin:.4em 0; height:0; overflow:hidden}
   }
 </style>
@@ -139,6 +155,8 @@
   </nav>
 
   <footer>
+    A seminar by <a class="author" href="https://lukasikic.info">Luka Šikić</a>
+    <span class="dot">·</span>
     Repository &amp; source
     <a href="https://github.com/lusiki/AI_workshop_wiiw">github.com/lusiki/AI_workshop_wiiw</a>
     <span class="dot">·</span>
