@@ -4,55 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI in Economics Research — wiiw seminar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--blue:#00437b;--blue-light:#3a6ea5;--amber:#e0a300;--ink:#1a1a1a;--muted:#5b6672;--rule:#d9dee3}
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    background:#eef1f4;color:var(--ink);
-    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;padding:24px}
-  .card{background:#fff;max-width:720px;width:100%;border-radius:14px;
-    box-shadow:0 6px 30px rgba(0,0,0,.12);overflow:hidden}
-  .top{background:var(--blue);color:#fff;padding:26px 30px}
-  .top h1{margin:0;font-size:24px}
-  .top p{margin:6px 0 0;color:#cfe0ef;font-size:14px}
-  .body{padding:26px 30px 30px}
-  .lead{color:var(--muted);font-size:14px;margin:0 0 20px;line-height:1.5}
-  .links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  a.btn{display:block;text-decoration:none;border:1px solid var(--rule);border-radius:10px;
-    padding:14px 16px;color:var(--ink);transition:border-color .15s,transform .05s}
-  a.btn:hover{border-color:var(--amber);transform:translateY(-1px)}
-  a.btn b{display:block;color:var(--blue);font-size:15px}
-  a.btn span{color:var(--muted);font-size:12px}
-  a.primary{border-color:var(--blue);border-width:2px}
-  .foot{margin-top:20px;font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px}
-  .foot a{color:var(--blue)}
-  @media (max-width:560px){.links{grid-template-columns:1fr}}
+  :root{
+    --bg:#ffffff; --ink:#0b0b0c; --muted:#6c7075; --faint:#9aa0a6;
+    --line:#e7e8ea; --line-strong:#0b0b0c; --hover:#f5f6f7;
+  }
   @media (prefers-color-scheme:dark){
-    body{background:#0e1621}.card{background:#141d29}
-    a.btn{color:#e7ebf0;border-color:#2a3646}a.btn b,.foot a{color:var(--blue-light)}
-    .lead,a.btn span,.foot{color:#9fb0c2}
+    :root{
+      --bg:#0a0b0c; --ink:#f2f3f4; --muted:#9096a0; --faint:#6b7178;
+      --line:#20242a; --line-strong:#f2f3f4; --hover:#12151a;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+    font-family:"Roboto",-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    font-weight:400; line-height:1.5; letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    display:flex; justify-content:center;
+    padding:clamp(28px,7vw,96px) clamp(22px,6vw,48px);
+  }
+  main{width:100%; max-width:660px}
+
+  /* ---- header ---- */
+  .kicker{
+    font-family:"Roboto Mono",ui-monospace,monospace; font-size:12px; font-weight:500;
+    text-transform:uppercase; letter-spacing:.34em; color:var(--muted);
+    margin:0 0 clamp(28px,6vw,44px);
+  }
+  h1{
+    font-weight:300; font-size:clamp(2.3rem,7vw,3.9rem); line-height:1.02;
+    letter-spacing:-.025em; margin:0 0 20px;
+  }
+  .subtitle{
+    font-weight:300; font-size:clamp(1.02rem,2.4vw,1.28rem); line-height:1.4;
+    color:var(--ink); margin:0 0 26px; max-width:34ch;
+  }
+  .lead{
+    font-size:.98rem; color:var(--muted); margin:0; max-width:52ch; line-height:1.65;
+  }
+
+  /* ---- resource list ---- */
+  .list{margin:clamp(44px,9vw,72px) 0 0; border-top:1px solid var(--line-strong)}
+  a.row{
+    display:grid; grid-template-columns:auto 1fr auto; align-items:baseline;
+    column-gap:clamp(16px,4vw,32px); text-decoration:none; color:inherit;
+    padding:clamp(22px,4.5vw,30px) 4px; border-bottom:1px solid var(--line);
+    position:relative; transition:background-color .18s ease;
+  }
+  a.row:hover,a.row:focus-visible{background:var(--hover); outline:none}
+  .idx{
+    font-family:"Roboto Mono",ui-monospace,monospace; font-size:.78rem; font-weight:400;
+    color:var(--faint); padding-top:.35em; letter-spacing:.02em;
+  }
+  .rowbody{min-width:0}
+  .rowtitle{
+    font-weight:500; font-size:clamp(1.08rem,2.6vw,1.32rem); letter-spacing:-.012em;
+    display:inline-block; transition:transform .18s ease;
+  }
+  a.row:hover .rowtitle,a.row:focus-visible .rowtitle{transform:translateX(4px)}
+  .rowdesc{color:var(--muted); font-size:.9rem; line-height:1.5; margin-top:6px; max-width:46ch}
+  .tag{
+    font-family:"Roboto Mono",ui-monospace,monospace; font-size:.62rem; font-weight:500;
+    text-transform:uppercase; letter-spacing:.2em; color:var(--bg); background:var(--ink);
+    padding:3px 7px; border-radius:2px; margin-left:12px; vertical-align:middle;
+    position:relative; top:-2px;
+  }
+  .arrow{
+    font-family:"Roboto Mono",ui-monospace,monospace; font-size:1.2rem; color:var(--faint);
+    padding-top:.15em; transition:transform .18s ease,color .18s ease;
+  }
+  a.row:hover .arrow,a.row:focus-visible .arrow{transform:translateX(5px); color:var(--ink)}
+
+  /* ---- footer ---- */
+  footer{
+    margin-top:clamp(40px,8vw,64px); font-size:.82rem; color:var(--faint); line-height:1.7;
+  }
+  footer a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line);
+    transition:color .18s ease,border-color .18s ease}
+  footer a:hover{color:var(--ink); border-color:var(--line-strong)}
+  .dot{margin:0 .6em; color:var(--line-strong); opacity:.4}
+  @media (max-width:440px){
+    a.row{grid-template-columns:1fr auto; column-gap:18px}
+    .idx{display:none}
+    .dot{display:block; margin:.4em 0; height:0; overflow:hidden}
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="top">
-      <h1>AI in Economics Research</h1>
-      <p>From frontier ideas to a working agentic pipeline · a seminar for wiiw</p>
-    </div>
-    <div class="body">
-      <p class="lead">Everything from the hour, in one place. Clone the repository to run the
-      pipeline yourself; open the slides and handout below to follow along.</p>
-      <div class="links">
-        <a class="btn primary" href="slides.html"><b>▶ Slides</b><span>reveal.js deck — arrow keys to navigate</span></a>
-        <a class="btn" href="handout.html"><b>▤ One-page handout</b><span>the five components, cost table, reading list</span></a>
-        <a class="btn" href="slides.pdf"><b>⬇ Slides (PDF)</b><span>printable fallback of the deck</span></a>
-        <a class="btn" href="working_paper.html"><b>📄 Working paper</b><span>rendered live from Eurostat · opens in your browser</span></a>
-      </div>
-      <p class="foot">Repository &amp; source:
-        <a href="https://github.com/lusiki/AI_workshop_wiiw">github.com/lusiki/AI_workshop_wiiw</a>
-        · pricing figures — re-verify at claude.com/pricing the week of the talk.</p>
-    </div>
-  </div>
+<main>
+  <p class="kicker">wiiw seminar</p>
+  <h1>AI in Economics Research</h1>
+  <p class="subtitle">From frontier ideas to a working agentic pipeline.</p>
+  <p class="lead">Everything from the hour, in one place. Clone the repository to run the
+    pipeline yourself, or open the slides, paper and handout below to follow along.</p>
+
+  <nav class="list">
+    <a class="row" href="slides.html">
+      <span class="idx">01</span>
+      <span class="rowbody">
+        <span class="rowtitle">Slides</span><span class="tag">start here</span>
+        <span class="rowdesc">reveal.js deck — use the arrow keys to navigate</span>
+      </span>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="row" href="working_paper.html">
+      <span class="idx">02</span>
+      <span class="rowbody">
+        <span class="rowtitle">Working paper</span>
+        <span class="rowdesc">rendered live from Eurostat — opens in your browser</span>
+      </span>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="row" href="handout.html">
+      <span class="idx">03</span>
+      <span class="rowbody">
+        <span class="rowtitle">One-page handout</span>
+        <span class="rowdesc">the five components, cost table and reading list</span>
+      </span>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="row" href="slides.pdf">
+      <span class="idx">04</span>
+      <span class="rowbody">
+        <span class="rowtitle">Slides (PDF)</span>
+        <span class="rowdesc">printable fallback of the deck</span>
+      </span>
+      <span class="arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </nav>
+
+  <footer>
+    Repository &amp; source
+    <a href="https://github.com/lusiki/AI_workshop_wiiw">github.com/lusiki/AI_workshop_wiiw</a>
+    <span class="dot">·</span>
+    Pricing figures — re-verify at claude.com/pricing the week of the talk.
+  </footer>
+</main>
 </body>
 </html>
