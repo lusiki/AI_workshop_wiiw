@@ -2,18 +2,18 @@
      aria-label="The operating loop: describe, plan, approve, execute under permissions, verify, commit, then next task.">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6672"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c7075"/>
     </marker>
     <style>
       .pill   { rx: 12; }
-      .human  { fill: #e0a300; }
-      .agent  { fill: #00437b; }
-      .lbl    { font-family: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; font-weight: 700; font-size: 16px; }
-      .lbl-h  { fill: #1a1a1a; }
+      .human  { fill: #ffffff; stroke: #0b0b0c; stroke-width: 1.5; }
+      .agent  { fill: #0b0b0c; }
+      .lbl    { font-family: "Roboto",-apple-system,Segoe UI,Helvetica,Arial,sans-serif; font-weight: 500; font-size: 16px; }
+      .lbl-h  { fill: #0b0b0c; }
       .lbl-a  { fill: #ffffff; }
-      .cap    { font-family: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; font-size: 11px; fill: #5b6672; }
-      .conn   { stroke: #5b6672; stroke-width: 2; fill: none; }
-      .ret    { font-family: -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; font-weight: 700; font-size: 13px; fill: #5b6672; }
+      .cap    { font-family: "Roboto",-apple-system,Segoe UI,Helvetica,Arial,sans-serif; font-size: 11px; fill: #6c7075; }
+      .conn   { stroke: #6c7075; stroke-width: 2; fill: none; }
+      .ret    { font-family: "Roboto",-apple-system,Segoe UI,Helvetica,Arial,sans-serif; font-weight: 500; font-size: 13px; fill: #6c7075; }
     </style>
   </defs>
 
@@ -57,7 +57,7 @@
 
   <!-- legend -->
   <rect class="human" x="24"  y="256" width="16" height="16" rx="4"/>
-  <text class="cap" x="48"  y="269">Human decides</text>
+  <text class="cap" x="50"  y="269">Human decides</text>
   <rect class="agent" x="176" y="256" width="16" height="16" rx="4"/>
-  <text class="cap" x="200" y="269">Agent works</text>
+  <text class="cap" x="202" y="269">Agent works</text>
 </svg>

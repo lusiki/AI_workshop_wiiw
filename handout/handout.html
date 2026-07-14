@@ -4,55 +4,58 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>wiiw · AI in Economics Research — one-page handout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --blue:#00437b; --blue-light:#3a6ea5; --amber:#e0a300;
-    --ink:#1a1a1a; --muted:#5b6672; --paper:#fff; --rule:#d9dee3; --soft:#f4f6f8;
+    --ink:#0b0b0c; --muted:#6c7075; --faint:#9aa0a6;
+    --paper:#fff; --backdrop:#f2f3f4; --rule:#e7e8ea; --rule-strong:#0b0b0c; --soft:#f5f6f7;
+    --mono:"Roboto Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;background:#e9edf1;color:var(--ink);
-    font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+  html,body{margin:0;background:var(--backdrop);color:var(--ink);
+    font-family:"Roboto",-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;letter-spacing:.005em;}
   .sheet{
-    width:297mm;min-height:210mm;margin:12px auto;padding:10mm 11mm;background:var(--paper);
-    box-shadow:0 2px 14px rgba(0,0,0,.15);
+    width:297mm;min-height:210mm;margin:14px auto;padding:11mm 12mm;background:var(--paper);
+    box-shadow:0 4px 24px rgba(0,0,0,.10);
   }
-  h1{font-size:20px;color:var(--blue);margin:0 0 1px}
-  .sub{color:var(--muted);font-size:11px;margin:0}
-  .repo{float:right;text-align:right;font-size:10px;color:var(--muted);line-height:1.35}
-  .repo b{color:var(--blue)}
-  header{border-bottom:3px solid var(--amber);padding-bottom:6px;margin-bottom:8px;overflow:hidden}
-  .diagram{width:100%;margin:2px 0 10px}
-  .diagram svg{width:100%;height:auto;max-height:130px}
-  .grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:11px}
-  h2{font-size:12px;color:var(--blue);margin:0 0 5px;text-transform:uppercase;letter-spacing:.03em}
+  h1{font-size:22px;font-weight:300;letter-spacing:-.02em;color:var(--ink);margin:0 0 2px}
+  .sub{color:var(--muted);font-size:11px;font-weight:300;margin:0}
+  .repo{float:right;text-align:right;font-size:9.5px;color:var(--muted);line-height:1.4;
+    font-family:var(--mono)}
+  .repo b{color:var(--ink);font-weight:500}
+  header{border-bottom:2px solid var(--rule-strong);padding-bottom:8px;margin-bottom:10px;overflow:hidden}
+  .diagram{width:100%;margin:2px 0 12px}
+  .diagram svg{width:100%;height:auto;max-height:132px}
+  .grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:13px}
+  h2{font-size:11px;font-weight:500;color:var(--ink);margin:0 0 6px;
+    text-transform:uppercase;letter-spacing:.14em}
   table{border-collapse:collapse;width:100%;font-size:9.4px}
-  th,td{text-align:left;padding:3px 5px;border-bottom:1px solid var(--rule);vertical-align:top}
-  th{background:var(--blue);color:#fff;font-size:9px;text-transform:uppercase;letter-spacing:.02em}
-  .num{background:var(--blue);color:#fff;font-weight:700;border-radius:999px;
-    display:inline-block;width:15px;height:15px;text-align:center;line-height:15px;font-size:9px}
+  th,td{text-align:left;padding:3.5px 5px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{background:none;color:var(--ink);border-bottom:1.5px solid var(--rule-strong);
+    font-family:var(--mono);font-weight:500;font-size:8.4px;text-transform:uppercase;letter-spacing:.08em}
+  .num{background:var(--ink);color:#fff;font-family:var(--mono);font-weight:500;border-radius:3px;
+    display:inline-block;width:15px;height:15px;text-align:center;line-height:15px;font-size:8.5px}
   .cost td:nth-child(3),.cost td:nth-child(4){text-align:right;font-variant-numeric:tabular-nums}
-  .note{font-size:8.6px;color:var(--muted);margin:4px 0 0;line-height:1.4}
-  .gov{font-size:9.2px;line-height:1.4;margin:8px 0 0;padding-left:15px}
+  .cost th:nth-child(3),.cost th:nth-child(4){text-align:right}
+  .note{font-size:8.6px;color:var(--muted);margin:5px 0 0;line-height:1.45}
+  .gov{font-size:9.2px;line-height:1.45;margin:9px 0 0;padding-left:15px}
   .gov li{margin-bottom:3px}
-  .reading{font-size:8.7px;line-height:1.4;margin:0;padding-left:14px;columns:1}
-  .reading li{margin-bottom:2px}
-  .reading .lens{color:var(--amber);font-weight:700}
-  .take{background:rgba(224,163,0,.13);border-left:5px solid var(--amber);
-    padding:6px 8px;border-radius:0 6px 6px 0;font-size:9.4px;line-height:1.45;margin-top:9px}
-  .take b{color:var(--blue)}
-  .foot{clear:both;margin-top:9px;border-top:1px solid var(--rule);padding-top:5px;
-    font-size:8.4px;color:var(--muted);display:flex;justify-content:space-between}
+  .reading{font-size:8.7px;line-height:1.45;margin:0;padding-left:14px;columns:1}
+  .reading li{margin-bottom:2.5px}
+  .reading .lens{font-family:var(--mono);font-size:7.5px;font-weight:500;color:var(--ink);
+    border:1px solid var(--rule-strong);border-radius:2px;padding:0 3px;margin-left:2px}
+  .take{background:var(--soft);border-left:4px solid var(--ink);
+    padding:7px 9px;border-radius:0 6px 6px 0;font-size:9.4px;line-height:1.5;margin-top:10px}
+  .take b{color:var(--ink)}
+  .foot{clear:both;margin-top:11px;border-top:1px solid var(--rule);padding-top:6px;
+    font-size:8.4px;color:var(--faint);display:flex;justify-content:space-between}
   @media print{
     @page{size:A4 landscape;margin:8mm}
     html,body{background:#fff}
     .sheet{width:auto;min-height:auto;margin:0;padding:0;box-shadow:none}
-  }
-  @media (prefers-color-scheme:dark){
-    html,body{background:#0e1621}
-    .sheet{background:#141d29;color:#e7ebf0}
-    h1,h2,.repo b{color:var(--blue-light)}
-    td,th{border-color:#2a3646}
-    .note,.sub,.foot,.repo{color:#9fb0c2}
   }
 </style>
 </head>
@@ -70,22 +73,32 @@
          aria-label="describe, plan, approve, execute under permissions, verify, commit, then next task">
       <defs>
         <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6672"/></marker>
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c7075"/></marker>
+        <style>
+          .box-h{fill:#fff;stroke:#0b0b0c;stroke-width:1.5}
+          .box-a{fill:#0b0b0c}
+          .t-h{fill:#0b0b0c;font-weight:500}
+          .t-a{fill:#fff;font-weight:500}
+          .cap{fill:#6c7075;font-size:11px}
+          .conn{stroke:#6c7075;stroke-width:2;fill:none}
+          .ret{fill:#6c7075;font-weight:500;font-size:13px}
+          text{font-family:"Roboto",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+        </style>
       </defs>
-      <path d="M 911 120 C 911 40, 911 40, 700 40 L 300 40 C 89 40, 89 40, 89 120" stroke="#5b6672" stroke-width="2" fill="none" marker-end="url(#ar)"/>
-      <text x="500" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#5b6672">next task</text>
-      <g font-family="-apple-system,Segoe UI,Roboto,sans-serif">
-        <rect x="24"    y="120" width="130" height="72" rx="12" fill="#e0a300"/><text x="89"    y="152" text-anchor="middle" font-weight="700" font-size="16" fill="#1a1a1a">Describe</text><text x="89"    y="210" text-anchor="middle" font-size="11" fill="#5b6672">you: request</text>
-        <rect x="188.4" y="120" width="130" height="72" rx="12" fill="#00437b"/><text x="253.4" y="152" text-anchor="middle" font-weight="700" font-size="16" fill="#fff">Plan</text><text x="253.4" y="210" text-anchor="middle" font-size="11" fill="#5b6672">agent: read-only</text>
-        <rect x="352.8" y="120" width="130" height="72" rx="12" fill="#e0a300"/><text x="417.8" y="152" text-anchor="middle" font-weight="700" font-size="16" fill="#1a1a1a">Approve</text><text x="417.8" y="210" text-anchor="middle" font-size="11" fill="#5b6672">you: plan gate</text>
-        <rect x="517.2" y="120" width="130" height="72" rx="12" fill="#00437b"/><text x="582.2" y="148" text-anchor="middle" font-weight="700" font-size="16" fill="#fff">Execute</text><text x="582.2" y="165" text-anchor="middle" font-size="9" fill="#fff">under permissions</text><text x="582.2" y="210" text-anchor="middle" font-size="11" fill="#5b6672">agent: allowlist</text>
-        <rect x="681.6" y="120" width="130" height="72" rx="12" fill="#00437b"/><text x="746.6" y="152" text-anchor="middle" font-weight="700" font-size="16" fill="#fff">Verify</text><text x="746.6" y="210" text-anchor="middle" font-size="11" fill="#5b6672">agent + critic</text>
-        <rect x="846"   y="120" width="130" height="72" rx="12" fill="#e0a300"/><text x="911"   y="152" text-anchor="middle" font-weight="700" font-size="16" fill="#1a1a1a">Commit</text><text x="911"   y="210" text-anchor="middle" font-size="11" fill="#5b6672">you: review diff</text>
-        <line x1="154"   y1="156" x2="188.4" y2="156" stroke="#5b6672" stroke-width="2" marker-end="url(#ar)"/>
-        <line x1="318.4" y1="156" x2="352.8" y2="156" stroke="#5b6672" stroke-width="2" marker-end="url(#ar)"/>
-        <line x1="482.8" y1="156" x2="517.2" y2="156" stroke="#5b6672" stroke-width="2" marker-end="url(#ar)"/>
-        <line x1="647.2" y1="156" x2="681.6" y2="156" stroke="#5b6672" stroke-width="2" marker-end="url(#ar)"/>
-        <line x1="811.6" y1="156" x2="846"   y2="156" stroke="#5b6672" stroke-width="2" marker-end="url(#ar)"/>
+      <path class="conn" d="M 911 120 C 911 40, 911 40, 700 40 L 300 40 C 89 40, 89 40, 89 120" marker-end="url(#ar)"/>
+      <text class="ret" x="500" y="34" text-anchor="middle">next task</text>
+      <g>
+        <rect class="box-h" x="24"    y="120" width="130" height="72" rx="12"/><text class="t-h" x="89"    y="152" text-anchor="middle" font-size="16">Describe</text><text class="cap" x="89"    y="210" text-anchor="middle">you: request</text>
+        <rect class="box-a" x="188.4" y="120" width="130" height="72" rx="12"/><text class="t-a" x="253.4" y="152" text-anchor="middle" font-size="16">Plan</text><text class="cap" x="253.4" y="210" text-anchor="middle">agent: read-only</text>
+        <rect class="box-h" x="352.8" y="120" width="130" height="72" rx="12"/><text class="t-h" x="417.8" y="152" text-anchor="middle" font-size="16">Approve</text><text class="cap" x="417.8" y="210" text-anchor="middle">you: plan gate</text>
+        <rect class="box-a" x="517.2" y="120" width="130" height="72" rx="12"/><text class="t-a" x="582.2" y="148" text-anchor="middle" font-size="16">Execute</text><text class="t-a" x="582.2" y="165" text-anchor="middle" font-size="9">under permissions</text><text class="cap" x="582.2" y="210" text-anchor="middle">agent: allowlist</text>
+        <rect class="box-a" x="681.6" y="120" width="130" height="72" rx="12"/><text class="t-a" x="746.6" y="152" text-anchor="middle" font-size="16">Verify</text><text class="cap" x="746.6" y="210" text-anchor="middle">agent + critic</text>
+        <rect class="box-h" x="846"   y="120" width="130" height="72" rx="12"/><text class="t-h" x="911"   y="152" text-anchor="middle" font-size="16">Commit</text><text class="cap" x="911"   y="210" text-anchor="middle">you: review diff</text>
+        <line class="conn" x1="154"   y1="156" x2="188.4" y2="156" marker-end="url(#ar)"/>
+        <line class="conn" x1="318.4" y1="156" x2="352.8" y2="156" marker-end="url(#ar)"/>
+        <line class="conn" x1="482.8" y1="156" x2="517.2" y2="156" marker-end="url(#ar)"/>
+        <line class="conn" x1="647.2" y1="156" x2="681.6" y2="156" marker-end="url(#ar)"/>
+        <line class="conn" x1="811.6" y1="156" x2="846"   y2="156" marker-end="url(#ar)"/>
       </g>
     </svg>
   </div>
@@ -119,7 +132,7 @@
         </tbody>
       </table>
       <p class="note">Batch <b>−50%</b> · cache reads <b>≈0.1×</b> input · route <b>70/20/10</b> (Haiku/Sonnet/Opus). Subs: Pro $20/mo · Max $100 &amp; $200 · Team ≈$25/$125 seat.</p>
-      <h2 style="margin-top:9px">Data governance</h2>
+      <h2 style="margin-top:10px">Data governance</h2>
       <ol class="gov">
         <li>Restricted microdata <b>never enter a prompt</b> — denied paths; the model reads only aggregated outputs.</li>
         <li>Prefer <b>Team / Enterprise / API</b>; check training-data terms before onboarding.</li>
@@ -128,7 +141,7 @@
     </section>
 
     <section>
-      <h2>Reading list · <span style="font-weight:400;text-transform:none;color:var(--muted)">A tool · B instrument · C object</span></h2>
+      <h2>Reading list · <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">A tool · B instrument · C object</span></h2>
       <ol class="reading">
         <li>Korinek 2023 <i>JEL</i> — taxonomy <span class="lens">A</span></li>
         <li>Korinek 2025 NBER — chatbots→agents <span class="lens">A</span></li>
