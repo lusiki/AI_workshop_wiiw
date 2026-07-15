@@ -11,6 +11,7 @@ $paper:       #ffffff;
 $rule:        #e7e8ea;   // hairline
 $rule-strong: #0b0b0c;   // emphasis rule
 $soft:        #f5f6f7;   // callout / code background
+$accent:      #f2402f;   // the single splash — title rules, chips, callout edge, link hover
 
 $body-bg:    $paper;
 $body-color: $ink;
@@ -42,7 +43,7 @@ $link-color-hover: $muted;
 .reveal h2 {
   font-weight: 400;
   letter-spacing: -.01em;
-  border-bottom: 2px solid $rule-strong;
+  border-bottom: 2px solid $accent;
   padding-bottom: 0.18em;
   display: inline-block;
   margin-bottom: 0.7em;
@@ -66,7 +67,7 @@ $link-color-hover: $muted;
   color: $ink; text-decoration: underline; text-underline-offset: 3px;
   text-decoration-thickness: 1px; text-decoration-color: $faint;
 }
-.reveal a:hover { color: $muted; text-decoration-color: $muted; }
+.reveal a:hover { color: $accent; text-decoration-color: $accent; }
 
 // Lede paragraph under a title.
 .reveal .lede { color: $muted; font-size: 0.9em; }
@@ -91,14 +92,14 @@ $link-color-hover: $muted;
 // The "money moment" callout — a light panel with a strong ink edge.
 .reveal .catch {
   background: $soft;
-  border-left: 4px solid $ink;
+  border-left: 4px solid $accent;
   padding: 0.55em 0.85em;
   border-radius: 0 6px 6px 0;
 }
 
 // Small index chips (the five components) — solid ink, mono.
 .reveal .chip {
-  display: inline-block; background: $ink; color: $paper;
+  display: inline-block; background: $accent; color: $paper;
   font-family: $font-family-monospace; font-weight: 500;
   font-size: 0.62em; padding: 0.16em 0.55em;
   border-radius: 3px; margin-right: 0.4em; vertical-align: middle;
@@ -119,4 +120,4 @@ $link-color-hover: $muted;
 .reveal .quarto-title-affiliation,
 .reveal .title-slide .institute { color: $muted; font-size: 0.72em; }
 .reveal .title-slide a { color: $ink; text-decoration-color: $faint; }
-.reveal .title-slide a:hover { color: $muted; }
+.reveal .title-slide a:hover { color: $accent; text-decoration-color: $accent; }
